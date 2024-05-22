@@ -1,0 +1,82 @@
+{
+    "books": [
+      {
+        "bookId": 1,
+        "bookName": "1984",
+        "author": "George Orwell",
+        "image": "./images/book1.webp",
+        "review": "A chilling dystopian novel depicting a totalitarian regime where the government controls every aspect of people's lives, raising questions about freedom, truth, and individuality.",
+        "totalPages": 328,
+        "rating": 4.5,
+        "category": "Fiction",
+        "tags": ["Dystopian", "Political"],
+        "publisher": "Secker & Warburg",
+        "yearOfPublishing": 1949
+      },
+      {
+        "bookId": 2,
+        "bookName": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "image": "./images/book2.webp",
+        "review": "A timeless classic that tackles themes of racial injustice, moral growth, and compassion through the eyes of a young girl in the Southern United States during the 1930s.",
+        "totalPages": 281,
+        "rating": 4.8,
+        "category": "Fiction",
+        "tags": ["Coming-of-age", "Legal Drama"],
+        "publisher": "J.B. Lippincott & Co.",
+        "yearOfPublishing": 1960
+      },
+      {
+        "bookId": 3,
+        "bookName": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "image": "./images/book3.webp",
+        "review": "A masterful portrayal of the Jazz Age in America, exploring themes of love, ambition, wealth, and the elusive American Dream through the lens of the enigmatic Jay Gatsby.",
+        "totalPages": 180,
+        "rating": 4.3,
+        "category": "Fiction",
+        "tags": ["Romance", "Tragedy"],
+        "publisher": "Charles Scribner's Sons",
+        "yearOfPublishing": 1925
+      },
+      {
+        "bookId": 4,
+        "bookName": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "image": "./images/book4.jpg",
+        "review": "A poignant coming-of-age novel that follows the disillusioned teenager Holden Caulfield as he navigates the complexities of adolescence, identity, and societal expectations.",
+        "totalPages": 224,
+        "rating": 4.2,
+        "category": "Fiction",
+        "tags": ["Young Adult", "Psychological"],
+        "publisher": "Little, Brown and Company",
+        "yearOfPublishing": 1951
+      },
+      {
+        "bookId": 5,
+        "bookName": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "image": "./images/book5.jpg",
+        "review": "An enchanting tale of adventure, friendship, and courage, as Bilbo Baggins embarks on a quest with a group of dwarves to reclaim their homeland from the fearsome dragon Smaug.",
+        "totalPages": 310,
+        "rating": 4.7,
+        "category": "Fantasy",
+        "tags": ["Adventure", "Quest"],
+        "publisher": "Allen & Unwin",
+        "yearOfPublishing": 1937
+      },
+      {
+        "bookId": 6,
+        "bookName": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "image": "./images/book6.jpeg",
+        "review": "A timeless romance that explores the complexities of love, marriage, and societal expectations in Regency-era England, with unforgettable characters like Elizabeth Bennet and Mr. Darcy.",
+        "totalPages": 279,
+        "rating": 4.6,
+        "category": "Fiction",
+        "tags": ["Romance", "Classic"],
+        "publisher": "T. Egerton, Whitehall",
+        "yearOfPublishing": 1813
+      }
+    ]
+  }
