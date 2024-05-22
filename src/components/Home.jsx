@@ -21,6 +21,7 @@ function Home() {
                 books.map(book=>{return   <Book key={book.bookId} book={book} wishlist={wishlistBooks} listHandler ={listedEventHandler}></Book>  
             })
             }
+            
         </div>
     )
 }

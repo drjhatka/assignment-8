@@ -6,25 +6,26 @@ function BookDetails() {
     const books = useLoaderData()
     const bookRead =books.books.find(book => id==parseInt(book.bookId))
     
-    const [ReadListArray, setReadListArray] = useState([]) 
+    const readlist =[];
 
-    const ReadEventHandler = (book)=>{
-        //check if readlist is empty
-        if(localStorage.getItem('readlist')===null){
-            console.log('empty')
-            // //create new readlist with this book
-             setReadListArray([...ReadListArray,book])
-             localStorage.setItem('readlist',JSON.stringify(ReadListArray))
-             console.log(ReadListArray,book)
-            
+    function readEventHandler ( book){
+        if(localStorage.getItem('readlist')==null){
+            readlist.push(book)
+            console.log(readlist)
+            localStorage.setItem('readlist',JSON.stringify(readlist))
         }
         else{
-            //check if the book already exists in localStorage
-            // setReadListArray( [...ReadListArray, book])
-            // localStorage.setItem('readlist', JSON.stringify(ReadListArray))
+            //retrieve
+            const currentData =JSON.parse(localStorage.getItem('readlist'))
+            //check if the current book exists
+            if(currentData.find(data =>data.bookId ==book.bookId)){
+                
+            }
+            localStorage.setItem('readlist',JSON.stringify([ ...currentData, book]))
         }
+        
     }
-    
+
     return (
         <div className='grid gap-2 py-4 md:grid-cols-2 px-2 border-2'>
             <div className=''>
@@ -60,7 +61,7 @@ function BookDetails() {
                     <h1 className='text-sm font-semibold'>Rating:</h1> <span className='text-sm font-semibold'>{bookRead.rating}</span>
                 </div>
                 <div className='flex gap-10'>
-                    <button onClick={()=>{ReadEventHandler(bookRead)}} className='btn btn-primary min-w-24 font-bold'>Read</button>
+                    <button onClick={()=>{readEventHandler(bookRead)}} className='btn btn-primary min-w-24 font-bold'>Read</button>
                     <button onClick={()=>{}} className='btn btn-primary min-w-24 font-bold'>WishList</button>
                 </div>
             </div>
