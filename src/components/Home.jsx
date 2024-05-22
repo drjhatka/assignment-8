@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import '../index.css'
 import Book from './Book'
+
 function Home() {
     const [books,setBooks]=useState([])
     const [listedBooks, setListedBooks] = useState([])
@@ -21,7 +22,7 @@ function Home() {
                 books.map(book=>{return   <Book key={book.bookId} book={book} wishlist={wishlistBooks} listHandler ={listedEventHandler}></Book>  
             })
             }
-            
+            <ToastContainer></ToastContainer>
         </div>
     )
 }
