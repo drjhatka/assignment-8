@@ -1,9 +1,9 @@
 import {NavLink} from 'react-router-dom'
 
 const NavLinks = <>
-    <li className='mr-4'><NavLink to="/">Home</NavLink></li>
-    <li className='mr-4'><NavLink to="/booklist">Books List</NavLink></li>
-    <li className='mr-4'><NavLink to="/wishlist">Wishlist</NavLink></li>
+    <li className='mr-4 font-semibold  '><NavLink className='' to="/">Home</NavLink></li>
+    <li className='mr-4 font-semibold  '><NavLink className='' to="/booklist">Books List</NavLink></li>
+    <li className='mr-4 font-semibold  '><NavLink className='' to="/wishlist">Pages to read</NavLink></li>
 </>
 function Navbar() {
     return (
@@ -21,7 +21,7 @@ function Navbar() {
                     <a className="btn btn-ghost text-xl">Books Vibe</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
+                    <ul className="menu  menu-horizontal px-1">
                         {NavLinks}
                     </ul>
                 </div>
