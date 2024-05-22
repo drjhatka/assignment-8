@@ -29,7 +29,7 @@ function BookDetails() {
                     {bookRead.review}
                 </div>
                 <div className='flex gap-4 font-semibold border-b-2 py-4 '>
-                    {bookRead.tags.map(tag=><><div class="badge badge-primary badge-outline py-3">{tag}</div></>)}
+                    {bookRead.tags.map((tag,index)=><div key={index} className="badge badge-primary badge-outline py-3">{tag}</div>)}
                 </div>
                 <div className='border-2 flex gap-12 items-center'>
                     <h1 className='text-sm font-semibold'>Number of Pages: </h1> <span className='text-sm font-semibold'>{bookRead.totalPages}</span>
@@ -44,8 +44,8 @@ function BookDetails() {
                     <h1 className='text-sm font-semibold'>Rating:</h1> <span className='text-sm font-semibold'>{bookRead.rating}</span>
                 </div>
                 <div className='flex gap-10'>
-                    <button className='btn btn-primary min-w-24 font-bold'>Read</button>
-                    <button className='btn btn-primary min-w-24 font-bold'>WishList</button>
+                    <button onClick={()=>{}} className='btn btn-primary min-w-24 font-bold'>Read</button>
+                    <button onClick={()=>{}} className='btn btn-primary min-w-24 font-bold'>WishList</button>
                 </div>
             </div>
         </div>
