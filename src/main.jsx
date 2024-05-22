@@ -8,6 +8,7 @@ import "./index.css";
 import App from "./App";
 import Home from "./components/Home";
 import BookList from "./components/BooksList";
+import BookDetails from "./components/BookDetails";
 
 const router = createBrowserRouter([
   {
@@ -16,13 +17,26 @@ const router = createBrowserRouter([
     children:[{
       path:"/",
       element:<Home></Home>
-    }],
+    },
+    {
+      path:'/book-details/:id',
+      element:<BookDetails></BookDetails>,
+      loader:()=> fetch('../../public/data.json').then(res =>res.json()).then(data=> data),
+    },
+    {
+      path:'/booklist',
+      element:<BookList></BookList>,
+      loader:()=> fetch('../../public/data.json').then(res =>res.json()).then(data=> data)
+    },
+    {
+      path:'/wishlist',
+      element:<BookList></BookList>,
+      loader:()=> fetch('../../public/data.json').then(res =>res.json()).then(data=> data)
+    }
+  ],
+    
   },
-  {
-    path:'/booklist',
-    element:<BookList></BookList>,
-    loader:()=> fetch('../../public/data.json').then(res =>res.json()).then(data=> data)
-  }
+ 
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

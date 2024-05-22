@@ -1,10 +1,10 @@
-import React from 'react'
+import { useNavigate} from 'react-router-dom'
 import { FaRegStar } from "react-icons/fa";
-function Book({book}) {
+function Book({book, listHandler}) {
     const {bookId,image,bookName, author, tags} = book;
-    console.log(tags)
+    const navigateTo = useNavigate()
     return (
-        <div className='bg-base-100 px-2 py-4 rounded-lg border-2 flex flex-col gap-6'>
+        <div onClick={()=>{ navigateTo(`/book-details/${bookId}`)}} className='bg-base-100 cursor-pointer px-2 py-4 rounded-lg border-2 flex flex-col gap-6'>
             <div className='flex justify-center' >
                 <img className='rounded-lg max-h-40 max-w-60 ' src={image} alt="" />
             </div>

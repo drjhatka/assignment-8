@@ -2,8 +2,8 @@ import React from 'react'
 import { useLoaderData } from 'react-router-dom'
 
 function BookList() {
-    //const books = useLoaderData();
-    //console.log(books)
+    const books = useLoaderData();
+    console.log(books)
     return (
         <div>
             
