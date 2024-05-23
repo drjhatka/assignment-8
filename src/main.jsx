@@ -26,14 +26,13 @@ const router = createBrowserRouter([
     {
       path:'/book-details/:id',
       element:<BookDetails></BookDetails>,
-      errorElement:<ErrorPage></ErrorPage>,
-      loader:()=> fetch('../../public/data.json').then(res =>res.json()).then(data=> data),
+      //loader: async ()=> await fetch('/public/data.json').then(res =>res.json()).then(data=> data),
     },
     {
       path:'/booklist',
       element:<BookList></BookList>,
       errorElement:<ErrorPage></ErrorPage>,
-      loader:()=> fetch('../../public/data.json').then(res =>res.json()).then(data=> data)
+     
     },
     {
       path:'/wishlist',
