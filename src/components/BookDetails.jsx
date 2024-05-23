@@ -7,55 +7,74 @@ function BookDetails() {
     const books = useLoaderData()
     const bookRead =books.books.find(book => id==parseInt(book.bookId))
     
-    let readlist =[];
-    let wishlist =[];
 
     function readEventHandler ( book){
+        const currentData =JSON.parse(localStorage.getItem('readlist'))
+        const currentWishData= JSON.parse(localStorage.getItem('wishlist'))
+        
         if(localStorage.getItem('readlist')==null){
-            readlist.push(book)
-            console.log(readlist)
-            localStorage.setItem('readlist',JSON.stringify(readlist))
+            localStorage.setItem('readlist',JSON.stringify([book]))
+            showToast('Added in your read list','light')
+            //remove from wish list
+            if(currentWishData && currentWishData.find((wishbook)=>book.bookId==wishbook.bookId)!=undefined){
+                if(currentWishData.filter(wbook =>wbook.bookId == book.bookId)){
+                    console.log('adasdSDS')
+                    localStorage.setItem('wishlist',JSON.stringify(currentWishData ? [...currentWishData.filter(wbook =>wbook.bookId != book.bookId)]:[] ))
+                }
+            }
         }
         else{
             //retrieve
-            const currentData =JSON.parse(localStorage.getItem('readlist'))
             //check if the current book exists
-            if(currentData.find(data =>data.bookId ==book.bookId)){
+            if(currentData && currentData.find(data =>data.bookId ==book.bookId)){
                 showToast('You already Read this book!','dark')
             }
             else{
                 localStorage.setItem('readlist',JSON.stringify([ ...currentData, book]))
                 showToast('Book Added to Read List!','light')
                 //remove from wish list
-                if(wishlist.find((wishbook)=>book.bookId==wishbook.bookId)!=undefined){
-                    wishlist.filter(wbook =>wbook.bookId == book.bookId)
+                if(currentWishData.filter(wish=>book.bookId==wish.bookId)){
+                    console.log('inside')
+                    localStorage.setItem('wishlist',JSON.stringify(currentWishData ? [...currentWishData.filter(wbook =>wbook.bookId != book.bookId)]:[]))
                 }
+               
             }
         }
         
     }
     function wishEventHandler(book){
+        //check if the book already exists in wishlist
+       
+        //if there is no wishlist saved in local storage...
         if(localStorage.getItem('wishlist')==null){
-            readlist.push(book)
-            console.log(readlist)
-            localStorage.setItem('wishlist',JSON.stringify(readlist))
-        }
-        else{
-            //retrieve
-            const currentData =JSON.parse(localStorage.getItem('wishlist'))
-            //check if the current book exists
-            if(currentData.find(data =>data.bookId ==book.bookId)){
-                showToast('This book is already in your wishlist!','dark')
+            //check if the book exists in readlist
+            if( JSON.parse(localStorage.getItem('readlist')) && JSON.parse(localStorage.getItem('readlist')).find(b=>b.bookId==book.bookId) ){
+                showToast('Already added to Read List')
             }
             else{
-                //check if its in the readlist
-                const readlist =JSON.parse(localStorage.getItem('readlist'))
-                if(readlist.find(read=>book.bookId == read.bookId)){
-                    showToast('Book Already Added to Read List!','dark')
+                //set local storage with current book
+                localStorage.setItem('wishlist',JSON.stringify([book]))
+                showToast('Book Added to wishlist','light')
+
+            }
+        }//end if
+        else{
+            const currentWishData =JSON.parse(localStorage.getItem('wishlist'))?JSON.parse(localStorage.getItem('wishlist')):[]
+            const readData = JSON.parse(localStorage.getItem('readlist'))?JSON.parse(localStorage.getItem('readlist')):[]
+            if(currentWishData.find(wishbook =>book.bookId==wishbook.bookId)){
+                showToast('This book is already in your WishList','dark')
+            }
+            else{
+                //otherwise add them in local storage
+                //check if the data exists in readlist
+                if(readData && readData.find(bk => bk.bookId == book.bookId)){
+                    showToast('You Already Read This book!','dark')
                 }
                 else{
-                    localStorage.setItem('wishlist',JSON.stringify([ ...currentData, book]))
-                    showToast('Book Added to Wish List!','light')
+                    //store current data
+                    localStorage.setItem('wishlist',JSON.stringify([...currentWishData,book]))
+                    showToast('Book Added to wishlist','light')
+
                 }
             }
         }
@@ -115,6 +134,7 @@ function showToast(message, theme){
         draggable: true,
         progress: undefined,
         theme: theme,
+        backgroundColor:'crimson',
         })
 }
 

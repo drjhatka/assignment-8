@@ -18,11 +18,12 @@ function Home() {
 
     return (
         <div className="grid md:grid-cols-3 gap-4 mt-5 rounded-full border-1">
+           
             {
                 books.map(book=>{return   <Book key={book.bookId} book={book} wishlist={wishlistBooks} listHandler ={listedEventHandler}></Book>  
             })
             }
-            <ToastContainer></ToastContainer>
+            
         </div>
     )
 }
