@@ -8,7 +8,7 @@ function Home() {
     const [listedBooks, setListedBooks] = useState([])
     const [wishlistBooks, setWishlistBooks] = useState([])
     useEffect(()=>{
-        fetch('/public/data.json').then(res =>res.json().then(data=>setBooks(data.books)))
+        fetch('data.json').then(res =>res.json().then(data=>setBooks(data.books)))
     },[])
     const listedEventHandler = listedBook =>{
         setListedBooks([...listedBooks,listedBook])      
