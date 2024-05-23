@@ -9,6 +9,7 @@ import App from "./App";
 import Home from "./components/Home";
 import BookList from "./components/BooksList";
 import BookDetails from "./components/BookDetails";
+import Chart from "./components/Chart";
 
 const router = createBrowserRouter([
   {
@@ -30,8 +31,8 @@ const router = createBrowserRouter([
     },
     {
       path:'/wishlist',
-      element:<BookList></BookList>,
-      loader:()=> fetch('../../public/data.json').then(res =>res.json()).then(data=> data)
+      element:<Chart></Chart>,
+//      loader:()=> fetch('../../public/data.json').then(res =>res.json()).then(data=> data)
     }
   ],
     
