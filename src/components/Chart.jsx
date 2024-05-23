@@ -39,8 +39,8 @@ function Chart() {
       };
      // const colors = scaleOrdinal(schemeCategory10).range();
     return (
-        <div className='w-full bg-slate-50  mt-10'>
-           <BarChart className='min-w-full py-2' width={900} height={400} data={JSON.parse(localStorage.getItem('readlist'))}>
+        <div className=' md:w-full   mt-10'>
+           <BarChart className='max-w-6/12 md:min-w-full py-2' width={800} height={400} data={JSON.parse(localStorage.getItem('readlist'))}>
                 <XAxis dataKey={"bookName"}  />
                 <YAxis  />
                 <Tooltip />

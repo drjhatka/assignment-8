@@ -5,8 +5,8 @@ import{Link} from 'react-router-dom'
 function BookDetailCard({book}) {
     const {image,bookName}=book
     return (
-        <div className='flex mb-4 bg-base-300 gap-10 border-2 px-2 py-4 rounded-lg'>
-            <div><img src={'.'+image} className="max-w-40 min-h-56" alt="" /></div>
+        <div className='md:flex-row flex flex-col mb-4 mt-6 md:mt-0 bg-base-300 gap-10 border-2 px-2 py-4 rounded-lg'>
+            <div><img src={'.'+image} className="md:max-w-40 md:min-h-56" alt="" /></div>
             <div className="flex flex-col gap-5">
                 <div className="font-semibold text-2xl">{book.bookName}</div>
                 <div>By: {book.author}</div>
